@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Coin-flip Game </title>
+  </head>
+  <body>
+    <p>Guess the coin "Heads" or "Tails"</p>
+    <button onclick=" guess='Heads' 
+      if(guess === result){
+        alert('You Win!!');
+      } else {
+        alert('You Lose!');
+      }">
+        Heads 
+    </button>
+
+    <button onclick=" guess='Tails' 
+      if(guess === result){
+        alert('You Win!!');
+      } else {
+        alert('You Lose!');
+        }">
+          Tails 
+    </button>
+
+
+    <script>
+      // exercise 6f
+      let coin = Math.random();
+
+      // exercise 6g
+      if(coin < 1/2){
+        console.log('Heads');
+      } else{
+        console.log('Tails');
+      }
+
+      // exercise 6h
+      let result;
+      if(coin < 1/2){
+        result ='Heads';
+      } else{
+        result ='Tails';
+      }
+      
+      // exercise 6i
+      let guess;
+      
+
+      // Exercise 6j
+       (coin < 1/2) ? console.log('Heads') : console.log('Tails');
+       result = (coin < 1/2) ? 'Heads' : 'Tails';
+
+    </script>
+  </body>
+</html>

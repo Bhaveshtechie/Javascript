@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> L6 Exercise </title>
+  </head>
+  <body>
+    <script>
+      // exercise 1
+      let hour = 6;
+
+      if(hour >= 6 && hour <= 12){
+        console.log("Good Morning!");
+      } else if(hour >= 13 && hour <= 17){
+        console.log("Good Afternoon!");
+      } else {
+        console.log("Good Night!");
+      }
+
+      // exercise 2
+      hour = 15;
+      if(hour >= 6 && hour <= 12){
+        console.log("Good Morning!");
+      } else if(hour >= 13 && hour <= 17){
+        console.log("Good Afternoon!");
+      } else {
+        console.log("Good Night!");
+      }
+      hour = 20;
+      if(hour >= 6 && hour <= 12){
+        console.log("Good Morning!");
+      } else if(hour >= 13 && hour <= 17){
+        console.log("Good Afternoon!");
+      } else {
+        console.log("Good Night!");
+      }
+
+      // exercise 3
+      let name = "Bhavesh";
+      if(hour >= 6 && hour <= 12){
+        console.log(`Good Morning, ${name}!`);
+      } else if(hour >= 13 && hour <= 17){
+        console.log(`Good Afternoon, ${name}!`);
+      } else {
+        console.log(`Good Night, ${name}!`);
+      }
+      
+      // exercise 4
+      let age = 32;
+
+      if(age <= 6 || age >= 65){
+        console.log("Discount!!");
+      } else{
+        console.log("No Discount!!");
+      }
+
+      age=5;
+      if(age <= 6 || age >= 65){
+        console.log("Discount!!");
+      } else{
+        console.log("No Discount!!");
+      }
+
+      age =70;
+      if(age <= 6 || age >= 65){
+        console.log("Discount!!");
+      } else{
+        console.log("No Discount!!");
+      }
+
+      // exercise 5
+      let isHoliday= true;
+      if((age <= 6 || age >= 65) && !(isHoliday)){
+        console.log("Discount!!");
+      } else{
+        console.log("No Discount!!");
+      }
+
+      isHoliday= false;
+      if((age <= 6 || age >= 65) && !(isHoliday)){
+        console.log("Discount!!");
+      } else{
+        console.log("No Discount!!");
+      }
+
+    </script>
+  </body>
+</html>
