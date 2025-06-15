@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Todo list </title>
+    <style>
+      body{
+        font-family: Arial;
+      }
+
+      .todo-grid,
+      .todo-input-grid {
+        display: grid;
+        grid-template-columns: 200px 150px 100px;
+        column-gap: 10px;
+        row-gap: 10px;
+        align-items: center;
+      }
+
+      .todo-input-grid{
+        margin-bottom: 10px;
+        align-items: stretch;
+      }
+
+      .name-input,.date-input {
+        font-size: 15px;
+        padding: 6px;
+      }
+
+      .add-todo-button,
+      .delete-todo-button {
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .delete-todo-button{
+        background-color: darkred;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p> Todo list</p>
+    <div class="todo-input-grid">
+      <input class="input name-input" placeholder="Enter task name">
+      <input type="date" class="date-input">
+      <button onclick="addTask();" class="add-todo-button"> Add </button>
+    </div>
+
+    <div class="todo-list-elements todo-grid"></div>
+
+    <script>
+        const task = JSON.parse(localStorage.getItem('task')) || [];
+
+        renderHtml();
+
+        function renderHtml(){
+          let todolistHTML = '';
+          for(let i=0; i< task.length ; i++){
+            const todoObj = task[i];
+            //const name = todoObj.name;
+            //const dueDate = todoObj.dueDate;
+            const { name,dueDate } = todoObj; //shortcut for above code
+            const html = `
+              <div>${name}</div>
+              <div>${dueDate}</div>
+              <button onclick="deleteTask(${i});" class="delete-todo-button">
+                Delete
+              </button>`;
+            todolistHTML += html;
+          }
+
+          document.querySelector('.todo-list-elements').innerHTML = todolistHTML;
+        }
+
+        function addTask(){
+          const nameInputElement = document.querySelector('.input');
+          const name = nameInputElement.value;
+
+          const dateInputElement = document.querySelector('.date-input');
+          const dueDate = dateInputElement.value;
+
+          task.push({
+            // name: name,
+            // dueDate: dueDate
+            name, // short cut for above code when property_name and variable_name is same
+            dueDate
+          });
+          nameInputElement.value = '';
+
+          renderHtml();
+          localStorage.setItem("task",JSON.stringify(task));
+        }
+
+        function deleteTask(i){
+          task.splice(i,1);
+          localStorage.setItem("task",JSON.stringify(task));
+          renderHtml();
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> L9 DOM </title>
+  </head>
+  <body>
+    <p>
+      <button> Hello! </button>
+      <button class="js-button"> second button </button>
+    </p>
+
+    <button class="button">9a</button><hr>
+    
+    <button class="button-b">9b</button>
+
+    <p>
+      <button onclick="result('heads')">heads</button>
+    
+      <button onclick="result('tails')">tails</button>
+    </p>
+    <p class="head-tail"></p>
+
+    <p>
+      <input class="input-box" onkeydown="inputByEnter(event)">
+      <button onclick="getNameFromInput()">Submit</button>
+    </p>
+    <p class="name-result"></p>
+    
+
+    <script>
+        /*    // Document Object represents/Models the webpage
+        console.log(document.title); //get the title of html page
+        document.title = 'Document Object Model'; //change the title of the html page
+
+        console.log(document.body); // give the full code of <body> in html page
+        console.log(typeof document.body); // object
+
+        console.log(document.body.innerHTML); // change the code inside body of html page
+        document.body.innerHTML = '<button> Good job! </button>';
+
+        console.log(document.querySelector('button').innerHTML);
+        document.querySelector('button').innerHTML = 'Changed';
+
+        const buttonElement = document.querySelector('js-button');
+        console.log(buttonElement); */
+
+        // exercise 9a
+        console.log(document.querySelector('.button'));
+
+        // exercise 9b
+        document.querySelector('.button-b').innerHTML = '9b done!';
+
+        // exercise 9c
+        function result(side){
+          if(side === 'heads'){
+            document.querySelector('.head-tail').innerHTML = 'You chose: heads';
+          } else {
+            document.querySelector('.head-tail').innerHTML = 'You chose: tails';
+          }
+        }
+
+        // exercise 9d
+        function getNameFromInput(){
+          const inputBoxElement = document.querySelector('.input-box');
+          let text = inputBoxElement.value ;
+          document.querySelector('.name-result').innerHTML = `Your name is: ${text}`;
+        }
+
+        // exercise 9e and 9f
+        function inputByEnter(event){
+          if(event.key === 'Enter'){
+            getNameFromInput();
+          }
+        }
+    </script>
+  </body>
+</html>

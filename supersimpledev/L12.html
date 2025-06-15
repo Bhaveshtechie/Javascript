@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> L12 Advanced function </title>
+  </head>
+  <body>
+    <!-- <button onclick=" loadingButton(); (startButton,1000);" class="start-button">Start</button>
+    <div>
+        <button onclick="addButton();" class="add-button">Add to cart</button>
+        <p class="add-text"></p>
+    </div>
+    <div>
+        <button onclick=" addMsg();">Add</button>
+        <button onclick=" removeMsg();">Remove</button>
+    </div> -->
+    <button onclick=" this.innerText = 'Loading..'; 
+      setTimeout(() => {
+        const startButton = document.querySelector('.start-button');
+        startButton.innerText = 'Finished!';
+      },1000)" class="start-button">Start</button>
+
+    <div>
+        <button class="add-button">Add to cart</button>
+        <p class="add-text"></p>
+    </div>
+    <div>
+        <button onclick=" addMsg();">Add</button>
+        <button onclick=" removeMsg();">Remove</button>
+    </div>
+    <script>
+      /*  // Exercise 12a
+      var add = function (){
+        console.log(2+3);
+      }
+
+      add();
+      add();
+
+      // Exercise 12b
+      function runTwice(fun){
+        fun();
+        fun();
+      }
+
+      runTwice(function (){ console.log('12b');});
+      runTwice(add); 
+
+      // Exercise 12c
+      function startButton(){
+        const startButton = document.querySelector('.start-button');
+        startButton.innerText = 'Finished!';
+      }
+
+      // Exercise 12d
+      function loadingButton(){
+        const startButton = document.querySelector('.start-button');
+        startButton.innerText = 'Loading..';
+      }
+
+      // Exercise 12e
+      function addButton(){
+        const addText = document.querySelector('.add-text');
+        addText.innerText = 'Added';
+
+        setTimeout(() => {const addText = document.querySelector('.add-text');
+        addText.innerText = '';},2000);
+      }
+
+      // Exercise 12f
+      let timeoutId;
+      function addButton(){
+        clearTimeout(timeoutId);
+        const addText = document.querySelector('.add-text');
+        addText.innerText = 'Added';
+
+        timeoutId = setTimeout(() => {const addText = document.querySelector('.add-text');
+        addText.innerText = '';},2000);
+      }
+
+      // Exercise 12g
+      //setInterval(() => { document.title = '(2) New messages'},1000);
+
+      // Exercise 12h and 12i
+      let msgCount = 0;
+      let msgIntervalId = null;
+
+      function addMsg(){
+        msgCount++;
+        if(msgCount > 0 && !msgIntervalId){
+            startInterval();
+        }
+      }
+
+      function removeMsg(){
+        if(msgCount > 0){
+            msgCount--;
+        }
+        if(msgCount === 0){
+            stopInterval();
+        }
+      }
+
+      function startInterval(){
+        if(!msgIntervalId){
+            msgIntervalId = setInterval(() => {
+            document.title = `(${msgCount}) New messages`} 
+        ,1000);
+        }
+      }
+
+      function stopInterval(){
+        if(msgIntervalId){
+            clearInterval(msgIntervalId);
+            msgIntervalId = null;
+            document.title = `App`;
+        }
+      }
+
+      // Exercise 12j and 12k
+      const multiply = (num1,num2) => {return num1 * num2;}
+
+      console.log(multiply(2,3));
+      console.log(multiply(7,10));
+
+      // Exercise 12l
+      function countPositive(nums){
+        let count = 0;
+
+        nums.forEach(function(value) {
+          if(value > 0){
+            count++;
+          }
+        });
+        return count;
+      }
+
+      console.log(countPositive([1,-3,5]));
+      console.log(countPositive([-2,3,-5,7,10]));
+
+      // Exercise 12m
+      function addNum(array,num){
+        return array.map((value) => value + num);;
+      }
+
+      console.log(addNum([1,2,3],2));
+      console.log(addNum([-2,-1,0,99],2));
+
+      // Exercise 12n
+      function removeEgg(array){
+        return array.filter((value) => {
+          if(value === 'egg'){
+            return false;
+          } else{
+            return true;
+          }
+        })
+      }
+
+      console.log(removeEgg(['apple','egg','ham','egg','apple','egg']));
+
+      // Exercise 12o
+      function removeEgg(array){
+        let count= 0;
+        return array.filter((value) => {
+          if(value === 'egg' && (count < 2)){
+            count++;
+            return false;
+          } else{
+            return true;
+          }
+        })
+      }
+
+      console.log(removeEgg(['apple','egg','ham','egg','apple','egg']));
+
+      // Exercise 12q
+      document.querySelector('.add-button').addEventListener('click',() => {
+        const addText = document.querySelector('.add-text');
+        addText.innerText = 'Added';
+
+        setTimeout(() => {const addText = document.querySelector('.add-text');
+        addText.innerText = '';},2000);
+      }) */
+
+      
+    </script>
+  </body>
+</html>

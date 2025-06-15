@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> L10 </title>
+    <style>
+      .normal-button-on1 , .normal-button-on2 , .normal-button-on3{
+        background-color: rgb(227, 227, 227);
+        padding: 11px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .is-toggled {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="js-button">Test</button>
+
+    <p>
+      <button class="normal-button-on1" onclick=" turnOn(1);">Gaming</button>
+
+      <button class="normal-button-on2" onclick=" turnOn(2);">Music</button>
+
+      <button class="normal-button-on3" onclick=" turnOn(3);">Tech</button>
+    </p>
+    <script>
+      // exercise 10c
+      const result =document.querySelector('.js-button').classList.contains('js-button');
+      //console.log(result);
+
+      // exercise 10d,10e and 10f
+      /*function turnOn(num){
+        const on = document.querySelector(`.normal-button${num}`).classList.contains('is-toggled');
+
+        if(on){
+          document.querySelector(`.normal-button${num}`).classList.remove('is-toggled');
+        } else{
+          document.querySelector(`.normal-button${num}`).classList.add('is-toggled');
+        }
+      } */
+      
+      // exercise 10g
+      function turnOn(num1){
+        const on1 = document.querySelector(`.normal-button-on1`).classList.contains('is-toggled');
+        const on2 = document.querySelector(`.normal-button-on2`).classList.contains('is-toggled');
+        const on3 = document.querySelector(`.normal-button-on3`).classList.contains('is-toggled');
+
+        if(num1 === 1){
+          if(on1){
+          document.querySelector(`.normal-button-on1`).classList.remove('is-toggled');
+          } else {
+            if(on2){
+              document.querySelector(`.normal-button-on2`).classList.remove('is-toggled');
+            } else if(on3){
+              document.querySelector(`.normal-button-on3`).classList.remove('is-toggled');
+            }
+            document.querySelector(`.normal-button-on1`).classList.add('is-toggled');
+          }
+        } else if(num1 === 2){
+          if(on2){
+          document.querySelector(`.normal-button-on2`).classList.remove('is-toggled');
+          } else {
+            if(on1){
+              document.querySelector(`.normal-button-on1`).classList.remove('is-toggled');
+            } else if(on3){
+              document.querySelector(`.normal-button-on3`).classList.remove('is-toggled');
+            }
+            document.querySelector(`.normal-button-on2`).classList.add('is-toggled');
+          }
+        } else if(num1 === 3){
+          if(on3){
+          document.querySelector(`.normal-button-on3`).classList.remove('is-toggled');
+          } else {
+            if(on2){
+              document.querySelector(`.normal-button-on2`).classList.remove('is-toggled');
+            } else if(on1){
+              document.querySelector(`.normal-button-on1`).classList.remove('is-toggled');
+            }
+            document.querySelector(`.normal-button-on3`).classList.add('is-toggled');
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

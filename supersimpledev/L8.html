@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> L8 Objects </title>
+  </head>
+  <body>
+    <script>
+      // object can store any datatype,object and funstion inside
+      // object only score the memory reference not the actual data
+      // and the reference takes us to the place in memory where actual data is scored
+      const product1 = {
+        name: 'laptop',
+        price: 100000,
+        rating: {
+          star: 4.5,
+          count: 998
+        },
+        fun: function function1(){
+          console.log('function inside of object')
+        },
+        color: 'black'
+      }
+
+      const {price} = product1; /* it is called object destructuring,
+      destructuring is a easy way to take properties out of obj,
+      same as writing const price = product1.price;
+      we can also take multiple properties out like,
+      const {price,name,color} = product1;*/
+
+      /* shorthand property- if the property and variable name is same then we only have to type it once
+         shorthand method- */
+     const size = 'XL';
+     const object1 = {
+      size, // same as writing size: size,
+
+      method() {                                //same as writing method: function function1(){
+        console.log('method of obj');           //                  console.log('method of obj');
+      }                                         //  }
+     }
+
+      const strOfProduct1 = JSON.stringify(product1); /* convert a object into JSON string,
+       JSON can't store functions, JSON is used to send receive data universally  */
+      console.log(strOfProduct1);
+
+      const objOfStrOfProd1 = JSON.parse(strOfProduct1); // convert a JSON string into JS object
+      console.log(objOfStrOfProd1);
+
+      localStorage.setItem('product1',JSON.stringify(product1)) /* localStorage object is used to store values locally
+      it stores strings only in key(name) - value pair */
+      const getStrProd1 =localStorage.getItem('product1') // get(retrieve) the string saved as name 'product1'
+      // Exercise 8a
+      let product = {
+        name: 'basketball',
+        price: 2095
+      }
+
+      console.log(product);
+
+      // exercise 8b
+      product.price += 500;
+      console.log(product);
+
+      // exercise 8c
+      product['delivery-time'] = '3 days';
+      console.log(product);
+
+      // exercise 8d
+      let product2 = {
+        name: 'football',
+        price: 2000
+      }
+
+      function comparePrice(product,product2){
+        if(product.price > product2.price){
+          return product2;
+        } else {
+          return product;
+        }
+      }
+
+      console.log(comparePrice(product,product2));
+
+      // exercise 8e
+      function isSameProduct(product,product2){
+        if((product.price === product2.price) && (product.name === product2.name)){
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(isSameProduct(product,product2));
+
+      // exercise 8f
+      let str = 'Good Morning';
+
+      console.log(str.toLowerCase());
+
+      // exercise 8g
+      console.log(str.repeat(3));
+    </script>
+  </body>
+</html>

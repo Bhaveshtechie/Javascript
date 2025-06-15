@@ -5,21 +5,11 @@
   </head>
   <body>
     <p>Guess the coin "Heads" or "Tails"</p>
-    <button onclick=" guess='Heads' 
-      if(guess === result){
-        alert('You Win!!');
-      } else {
-        alert('You Lose!');
-      }">
+    <button onclick=" playGame('Heads') ">
         Heads 
     </button>
 
-    <button onclick=" guess='Tails' 
-      if(guess === result){
-        alert('You Win!!');
-      } else {
-        alert('You Lose!');
-        }">
+    <button onclick=" playGame('Tails') ">
           Tails 
     </button>
 
@@ -50,6 +40,26 @@
       // Exercise 6j
        (coin < 1/2) ? console.log('Heads') : console.log('Tails');
        result = (coin < 1/2) ? 'Heads' : 'Tails';
+
+       // exercise 8i
+       let score = {
+        wins: 0,
+        losses: 0
+      }
+      const savedScore = localStorage.getItem('score');
+      console.log(savedScore);
+
+      function playGame(guess){
+        if(guess === result){
+          alert('You Win!!');
+          score.wins++;
+        } else {
+          alert('You Lose!');
+          score.losses++;
+        }
+        console.log(score);
+        localStorage.setItem('score',JSON.stringify(score));
+      }
 
     </script>
   </body>

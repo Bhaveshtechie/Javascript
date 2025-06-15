@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> L11 Arrays and loops </title>
+  </head>
+  <body>
+    <script>
+	  /* // Exercise 11a
+      const nums = [10,20,30];
+      nums[2] = 99;
+      console.log(nums);
+
+		// Exercise 11b
+		function getLastValue(array){
+			const lastIndex = array.length -1;
+			
+			console.log(array[lastIndex]);
+		}
+
+		const array1 = [1,20,22,95,5];
+		getLastValue(array1);
+
+		getLastValue(['Hi','Hello','good']);
+
+		// Exercise 11c
+		function arraySwap(array){
+			const lastIndex = array.length -1;
+			const temp = array[0];
+			array[0] = array[lastIndex];
+			array[lastIndex] = temp;
+
+			console.log(array);
+		}
+
+		arraySwap(array1);
+		arraySwap(['Hi','Hello','good']);
+
+		// Exercise 11d
+		for(let i=0; i<=10; i+=2){
+			console.log(i);
+		}
+
+		// Exercise 11e
+		for(let i=5; i>=0; i--){
+			console.log(i);
+		}
+
+		// Exercise 11f
+		let i=0;
+		while(i<=10){
+			console.log(i);
+			i+=2;
+		}
+
+		i=5;
+		while(i>=0){
+			console.log(i);
+			i--;
+		} 
+
+		// Exercise 11g
+		for(let i=0; i< array1.length ; i++){
+			array1[i] += 1;
+		}
+		console.log(array1);
+
+		// Exercise 11h
+		function addOne(array){
+			for(let i=0; i< array.length ; i++){
+				array[i] += 1;
+			}
+			console.log(array);
+		}
+
+		addOne([1,2,3,4,5]);
+		addOne([-5,-1,3,99]);
+
+		// Exercise 11i
+		function addNum(array,num){
+			for(let i=0; i< array.length ; i++){
+				array[i] += num;
+			}
+			console.log(array);
+		}
+
+		addNum([1,2,3],2);
+		addNum([1,2,3],3);
+		addNum([-2,-1,0,99],2);
+
+		// Exercise 11j
+		function addArray(array1,array2){
+			for(let i=0; i< array1.length ; i++){
+				array1[i] += array2[i];
+			}
+			console.log(array1);
+		}
+
+		addArray([1,1,2],[1,1,3]);
+		addArray([1,2,3],[4,5,6]);
+		addArray([1,2,3,4,5],[4,5,6]);
+
+		// Exercise 11k
+		function countPositive(array){
+			let count = 0;
+			for(let i=0; i< array.length ; i++){
+				if(array[i] > 0) count++;
+			}
+
+			return count;
+		}
+
+		console.log(countPositive([1,-3,5]));
+		console.log(countPositive([-2,3,-5,7,10]));
+
+		// Exercise 11l and 11m
+		function minMax(array){
+			const obj= {
+				min: null,
+				max: null
+			}
+
+			for(let i=0; i< array.length ; i++){
+				if(array.length <= 1){
+					obj.min = array[0];
+					obj.max = array[0];
+					return obj;
+				} else if(array[i] > obj.max){
+					obj.max = array[i];
+				} else if(array[i] < obj.min){
+					obj.min = array[i];
+				}
+			}
+
+			return obj;
+		}
+
+		console.log(minMax([1,-3,5]));
+		console.log(minMax([1,0,5])); // not correct for min 0
+		console.log(minMax([-2,3,-5,7,10]));
+		console.log(minMax([]));
+		console.log(minMax([3]));
+
+		// Exercise 11n
+		function countWords(array){
+			const obj = {};
+
+			for(let i=0; i< array.length ; i++){
+				if(obj[array[i]]){
+					obj[array[i]]++;
+				} else {
+					obj[array[i]] = 1;
+				}
+			}
+
+			return obj;
+		}
+
+		console.log(countWords(['apple','grape','apple','apple','banana','grape']));
+
+		// Exercise 11o and 11p
+		const arraySearch = ['hello','world','search','good','search'];
+		//const arraySearch = ['hello','not','found'];
+		for(let i=0, isFound = false; i< arraySearch.length ; i++){
+			if(arraySearch[i] === 'search'){
+				console.log(i);
+				isFound = true;
+				break;
+			}
+
+			if((i === (arraySearch.length-1)) && !(isFound)){
+				console.log(-1);
+			}
+		}
+
+		// Exercise 11q
+		function findIndex(array,word){
+			for(let i=0; i< array.length ; i++){
+				if(array[i] === word){
+					return i;
+					break;
+				}
+
+				if(i === (array.length-1)){
+					return -1;
+				}
+			}
+		}
+
+		console.log(findIndex(['green','red','blue','red'],'red'));
+		console.log(findIndex(['green','red','blue','red'],'yellow'));
+
+		// Exercise 11r
+		function removeEgg(foods){
+			const result= [];
+			for(let i=0; i< foods.length ; i++){
+				if(foods[i] === 'egg'){
+					continue;
+				} else {
+					result.push(foods[i]);
+				}
+			}
+
+			return result;
+		}
+
+		console.log(removeEgg(['egg','apple','egg','ham','egg']));
+
+		// Exercise 11s
+		function removeEgg(foods){
+			const result= [];
+			for(let i=0, eggCount = 0; i< foods.length ; i++){
+				if((foods[i] === 'egg') && (eggCount < 2)){
+					eggCount++;
+					continue;
+				} else {
+					result.push(foods[i]);
+				}
+			}
+
+			return result;
+		}
+
+		console.log(removeEgg(['apple','egg','ham','egg','apple','egg']));
+		console.log(removeEgg(['egg','apple','egg','ham','egg']));
+
+		// Exercise 11t
+		function removeEgg(foods){
+			foods.reverse();
+			const result= [];
+			for(let i=0, eggCount = 0; i< foods.length ; i++){
+				if((foods[i] === 'egg') && (eggCount < 2)){
+					eggCount++;
+					continue;
+				} else {
+					result.push(foods[i]);
+				}
+			}
+
+			result.reverse();
+			return result;
+		}
+
+		console.log(removeEgg(['apple','egg','ham','egg','apple','egg']));
+		console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+		// Exercise 11u
+		function removeEgg(foods){
+			const result= [];
+			for(let i=foods.length -1 , eggCount = 0; i >= 0; i--){
+				if((foods[i] === 'egg') && (eggCount < 2)){
+					eggCount++;
+					continue;
+				} else {
+					result.push(foods[i]);
+				}
+			}
+
+			result.reverse();
+			return result;
+		}
+
+		const foods = ['egg','apple','egg','egg','ham'];
+		console.log(removeEgg(foods));
+		console.log(foods);
+
+		// Exercise 11v
+		for(let i=1; i<= 20;i++){
+			if((i % 3 === 0) && (i % 5 === 0)){
+				console.log('FizzBuzz');
+			} else if(i % 3 === 0){
+				console.log('Fizz');
+			} else if(i % 5 === 0){
+				console.log('Buzz');
+			} else {
+				console.log(i);
+			}
+		}  */
+
+		// Exercise 11w
+		function findIndex(array,word){
+			for(let i=0; i< array.length ; i++){
+				if(array[i] === word){
+					return i;
+				}
+			}
+
+			return -1;
+		}
+
+		function unique(array){
+			const result = [];
+			console.log(result[0]);
+			for(let i=0; i< array.length ; i++){
+				if(findIndex(result,array[i]) >= 0) {
+					continue;
+				} else {
+					result.push(array[i]);
+				}
+			}
+
+			return result;
+		}
+
+		console.log(unique(['green','red','blue','red','yellow','blue','green']));
+    </script>
+  </body>
+</html>
